@@ -43,6 +43,7 @@ int isDigit(char *str)
 void _rotl(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
+
 	int first_node_value;
 	stack_t *last_node;
 
@@ -67,8 +68,9 @@ void _rotl(stack_t **stack, unsigned int line_number)
 void _rotr(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
-	stack_t *last_node;
+
 	int first_node_value;
+	stack_t *last_node;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
