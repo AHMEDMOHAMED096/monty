@@ -35,6 +35,7 @@ void read_file(char *filename, stack_t **stack)
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	ssize_t read;
+	instruction_t *instruction;
 
 	if (file == NULL)
 	{
@@ -50,7 +51,7 @@ void read_file(char *filename, stack_t **stack)
 		if (line == NULL || line[0] == '#')
 			continue;
 
-		instruction_t *instruction = get_instruction(line);
+		instruction = get_instruction(line);
 
 		if (instruction == NULL)
 		{
@@ -74,6 +75,8 @@ void read_file(char *filename, stack_t **stack)
 
 instruction_t *get_instruction(char *str)
 {
+	int i = 0;
+
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
@@ -95,7 +98,7 @@ instruction_t *get_instruction(char *str)
 		{NULL, NULL}
 	};
 
-	for (int i = 0; instructions[i].opcode != NULL; i++)
+	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(instructions[i].opcode, str) == 0)
 			return (&instructions[i]);
