@@ -65,5 +65,5 @@ stack_t *add_node_to_start(stack_t **head, const int n);
 void free_list(stack_t *head);
 int delete_node_at_index(stack_t **head, unsigned int index);
 void error_exit(stack_t **stack);
-int isdigit(char *str);
+int isDigit(char *str);
 #endif

@@ -103,14 +103,3 @@ instruction_t *get_instruction(char *str)
 
 	return (NULL);
 }
-
-/**
- * error_exit - frees the stack and exits
- * @stack: pointer to the stack
- */
-
-void error_exit(stack_t **stack)
-{
-	free_list(*stack);
-	exit(EXIT_FAILURE);
-}
