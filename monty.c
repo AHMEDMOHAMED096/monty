@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 
 /**
 * read_file - Reads the given file
-* @filename: The name of the given file 
+* @filename: The name of the given file
 * @stack: Pointer to the stack
 */
 
@@ -67,7 +67,7 @@ void read_file(char *filename, stack_t **stack)
 }
 
 /**
- * get_instructions - Checks for the opcode and return it
+ * get_instruction - Checks for the opcode and return it
  * @str: The opcode
  * Return: The opcode on success or NULL on failure
  */
