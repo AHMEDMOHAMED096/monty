@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _add - Adds the top two elements of the stack
+ * add - Adds the top two elements of the stack
  * @stack: Pointer to the stack
  * @line_number: Line number where the opcode occurs
  */
@@ -79,7 +79,8 @@ void div(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mod - Computes the modulus of the second top element by the top element of the stack
+ * mod - Computes the modulus of the second top
+ * element by the top element of the stack
  * @stack: Pointer to the stack
  * @line_number: Line number where the opcode occurs
  */
