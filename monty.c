@@ -1,26 +1,43 @@
 #include "monty.h"
 
 /**
- * main - main entry point to prgram
- * @argc: number of arguments
- * @argv: opcode passed to main program
- * Return: always 0 on success
+ * get_instruction - Checks for the opcode and return it
+ * @str: The opcode
+ * Return: The opcode on success or NULL on failure
  */
 
-int main(int argc, char **argv)
+instruction_t *get_instruction(char *str)
 {
-	stack_t *stack = NULL;
+	int i = 0;
 
-	if (argc != 2)
+	instruction_t instructions[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"pchar", pchar},
+		{"add", add},
+		{"sub", sub},
+		{"mul", mul},
+		{"div", div},
+		{"mod", mod},
+		{"nop", nop},
+		{"rotl", rotl},
+		{"rotr", rotr},
+		{"pstr", pstr},
+		{"stack", stack},
+		{"queue", queue},
+		{NULL, NULL}
+	};
+
+	for (i = 0; instructions[i].opcode != NULL; i++)
 	{
-		printf("USAGE: monty file\n");
-		error_exit(&stack);
+		if (strcmp(instructions[i].opcode, str) == 0)
+			return (&instructions[i]);
 	}
 
-	read_file(argv[1], &stack);
-	free_list(stack);
-
-	return (0);
+	return (NULL);
 }
 
 /**
@@ -68,41 +85,24 @@ void read_file(char *filename, stack_t **stack)
 }
 
 /**
- * get_instruction - Checks for the opcode and return it
- * @str: The opcode
- * Return: The opcode on success or NULL on failure
+ * main - main entry point to prgram
+ * @argc: number of arguments
+ * @argv: opcode passed to main program
+ * Return: always 0 on success
  */
 
-instruction_t *get_instruction(char *str)
+int main(int argc, char **argv)
 {
-	int i = 0;
+	stack_t *stack = NULL;
 
-	instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"pchar", pchar},
-		{"add", add},
-		{"sub", sub},
-		{"mul", mul},
-		{"div", div},
-		{"mod", mod},
-		{"nop", nop},
-		{"rotl", rotl},
-		{"rotr", rotr},
-		{"pstr", pstr},
-		{"stack", stack},
-		{"queue", queue},
-		{NULL, NULL}
-	};
-
-	for (i = 0; instructions[i].opcode != NULL; i++)
+	if (argc != 2)
 	{
-		if (strcmp(instructions[i].opcode, str) == 0)
-			return (&instructions[i]);
+		printf("USAGE: monty file\n");
+		error_exit(&stack);
 	}
 
-	return (NULL);
+	read_file(argv[1], &stack);
+	free_list(stack);
+
+	return (0);
 }
