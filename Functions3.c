@@ -19,19 +19,19 @@ void error_exit(stack_t **stack)
 
 int isDigit(char *str)
 {
-    unsigned int i;
+	unsigned int i;
 
-    if (str == NULL)
-        return (0);
+	if (str == NULL)
+		return (0);
 
-    for (i = 0; str[i]; i++)
-    {
-        if (str[0] == '-' && i == 0)
-            continue;
-        if (!isdigit(str[i]))
-            return (0);
-    }
-    return (1);
+	for (i = 0; str[i]; i++)
+	{
+		if (str[0] == '-' && i == 0)
+			continue;
+		if (!isdigit(str[i]))
+			return (0);
+	}
+	return (1);
 }
 
 /**
@@ -43,19 +43,19 @@ int isDigit(char *str)
 void _rotl(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
-    stack_t *last_node;
-    int first_node_value;
+	stack_t *last_node;
+	int first_node_value;
 
-    if (*stack == NULL || (*stack)->next == NULL)
-        return;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
 
-    last_node = *stack;
-    while (last_node->next)
+	last_node = *stack;
+	while (last_node->next)
 		last_node = last_node->next;
 
-    first_node_value = (*stack)->n;
-    (*stack)->n = last_node->n;
-    last_node->n = first_node_value;
+	first_node_value = (*stack)->n;
+	(*stack)->n = last_node->n;
+	last_node->n = first_node_value;
 }
 
 /**
@@ -67,17 +67,17 @@ void _rotl(stack_t **stack, unsigned int line_number)
 void _rotr(stack_t **stack, unsigned int line_number)
 {
 	(void) line_number;
-    stack_t *last_node;
-    int first_node_value;
+	stack_t *last_node;
+	int first_node_value;
 
-    if (*stack == NULL || (*stack)->next == NULL)
-        return;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
 
-    last_node = *stack;
-    while (last_node->next)
-        last_node = last_node->next;
+	last_node = *stack;
+	while (last_node->next)
+		last_node = last_node->next;
 
-    first_node_value = (*stack)->n;
-    (*stack)->n = last_node->n;
-    last_node->n = first_node_value;
+	first_node_value = (*stack)->n;
+	(*stack)->n = last_node->n;
+	last_node->n = first_node_value;
 }
