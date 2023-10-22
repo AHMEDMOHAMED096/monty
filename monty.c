@@ -23,6 +23,12 @@ int main(int argc, char **argv)
 	return (0);
 }
 
+/**
+* read_file - Reads the given file
+* @filename: The name of the given file 
+* @stack: Pointer to the stack
+*/
+
 void read_file(char *filename, stack_t **stack)
 {
 	FILE *file = fopen(filename, "r");
@@ -45,6 +51,7 @@ void read_file(char *filename, stack_t **stack)
 			continue;
 
 		instruction_t *instruction = get_instruction(line);
+
 		if (instruction == NULL)
 		{
 			printf("line %d: unknown instruction %s\n", line_count, line);
@@ -58,6 +65,12 @@ void read_file(char *filename, stack_t **stack)
 	free(buffer);
 	fclose(file);
 }
+
+/**
+ * get_instructions - Checks for the opcode and return it
+ * @str: The opcode
+ * Return: The opcode on success or NULL on failure
+ */
 
 instruction_t *get_instruction(char *str)
 {
@@ -90,6 +103,11 @@ instruction_t *get_instruction(char *str)
 
 	return (NULL);
 }
+
+/**
+ * error_exit - frees the stack and exits
+ * @stack: pointer to the stack
+ */
 
 void error_exit(stack_t **stack)
 {
