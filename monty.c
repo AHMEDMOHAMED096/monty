@@ -98,7 +98,7 @@ instruction_t *get_instruction(char *str)
 	for (int i = 0; instructions[i].opcode != NULL; i++)
 	{
 		if (strcmp(instructions[i].opcode, str) == 0)
-			return (&instructions[i]);
+			return (instructions[i]);
 	}
 
 	return (NULL);
