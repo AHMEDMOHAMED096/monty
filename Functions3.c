@@ -44,8 +44,7 @@ void _rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last_node;
 	int first_node_value;
-
-	(void) line_number;
+	(void)line_number;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
@@ -69,8 +68,7 @@ void _rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last_node;
 	int first_node_value;
-
-	(void) line_number;
+	(void)line_number;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return;
