@@ -81,3 +81,19 @@ void _rotr(stack_t **stack, unsigned int line_number)
 	(*stack)->n = last_node->n;
 	last_node->n = first_node_value;
 }
+
+/**
+ * parse_line - parses a line for an opcode and arguments
+ * @line: the line to be parsed
+ *
+ * Return: returns the opcode or null on failure
+ */
+char *tokenizing(char *line)
+{
+	char *op_code;
+
+	op_code = strtok(line, "\n ");
+	if (op_code == NULL)
+		return (NULL);
+	return (op_code);
+}
