@@ -48,7 +48,7 @@ void read_file(char *filename, stack_t **stack)
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	ssize_t read;
-	instructs_func *instruction;
+	instructs_func instruction;
 
 	if (file == NULL)
 	{
