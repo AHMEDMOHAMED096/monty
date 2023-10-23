@@ -40,8 +40,6 @@ instructs_func get_instruction(char *str)
 	return (NULL);
 }
 
-#include "monty.h"
-
 /**
 * read_file - Reads the given file
 * @filename: The name of the given file
@@ -51,9 +49,9 @@ instructs_func get_instruction(char *str)
 void read_file(char *filename, stack_t **stack)
 {
 	char *buffer = NULL;
-	char *line;
-	size_t i = 0;
-	int line_count = 1;
+	char *text;
+	size_t n = 0;
+	int lines_count = 1;
 	instructs_func result;
 	int check;
 	int read;
@@ -64,22 +62,22 @@ void read_file(char *filename, stack_t **stack)
 		printf("Error: Can't open file %s\n", filename);
 		error_exit(stack);
 	}
-	while ((read = getline(&buffer, &i, file)) != -1)
+	while ((read = getline(&buffer, &n, file)) != -1)
 	{
-		line = tokenizing(buffer);
-		if (line == NULL || line[0] == '#')
+		text = tokenizing(buffer);
+		if (text == NULL || text[0] == '#')
 		{
-			line_count++;
+			lines_count++;
 			continue;
 		}
 		result = get_instruction(line);
 		if (result == NULL)
 		{
-			printf("line %d: unknown instruction %s\n", line_count, line);
+			printf("line %d: unknown instruction %s\n", lines_count, text);
 			error_exit(stack);
 		}
-		result(stack, line_count);
-		line_count++;
+		result(stack, lines_count);
+		lines_count++;
 	}
 	free(buffer);
 	check = fclose(file);
