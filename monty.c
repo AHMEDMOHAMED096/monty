@@ -20,7 +20,7 @@ instructs_func get_instruction(char *str)
 		{"add", add},
 		{"sub", sub},
 		{"mul", mul},
-		{"div", div},
+		{"div", _div},
 		{"mod", mod},
 		{"nop", nop},
 		{"rotl", rotl},

@@ -55,12 +55,12 @@ void mul(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * div - Divides the second top element by the top element of the stack
+ * _div - Divides the second top element by the top element of the stack
  * @stack: Pointer to the stack
  * @line_number: Line number where the opcode occurs
  */
 
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
