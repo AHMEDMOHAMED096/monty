@@ -6,7 +6,7 @@
  * Return: The opcode on success or NULL on failure
  */
 
-instruction_t *get_instruction(char *str)
+instructs_func get_instruction(char *str)
 {
 	int i = 0;
 

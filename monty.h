@@ -41,7 +41,7 @@ typedef struct instruction_s
 } instruction_t;
 
 char *tokenizing(char *line);
-instruction_t *get_instruction(char *str);
+instructs_func get_instruction(char *str);
 void read_file(char *filename, stack_t **stack);
 void pall(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
@@ -66,4 +66,5 @@ void free_list(stack_t *head);
 int delete_node_at_index(stack_t **head, unsigned int index);
 void error_exit(stack_t **stack);
 int isDigit(char *str);
+typedef void (*instructs_func)(stack_t **stack, unsigned int line_number);
 #endif
