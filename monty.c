@@ -70,7 +70,7 @@ void read_file(char *filename, stack_t **stack)
 			lines_count++;
 			continue;
 		}
-		result = get_instruction(line);
+		result = get_instruction(text);
 		if (result == NULL)
 		{
 			printf("line %d: unknown instruction %s\n", lines_count, text);
