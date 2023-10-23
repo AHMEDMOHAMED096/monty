@@ -79,6 +79,8 @@ void read_file(char *filename, stack_t **stack)
 	fclose(file);
 }
 
+int queueMode = 0;
+
 /**
  * main - main entry point to prgram
  * @argc: number of arguments
@@ -88,7 +90,6 @@ void read_file(char *filename, stack_t **stack)
 
 int main(int argc, char **argv)
 {
-	int queueMode = 0;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
