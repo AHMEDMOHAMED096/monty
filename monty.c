@@ -40,6 +40,8 @@ instructs_func get_instruction(char *str)
 	return (NULL);
 }
 
+#include "monty.h"
+
 /**
 * read_file - Reads the given file
 * @filename: The name of the given file
