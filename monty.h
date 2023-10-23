@@ -41,7 +41,6 @@ typedef struct instruction_s
 } instruction_t;
 
 char *tokenizing(char *line);
-instructs_func get_instruction(char *str);
 void read_file(char *filename, stack_t **stack);
 void pall(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
