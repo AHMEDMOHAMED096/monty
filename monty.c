@@ -62,8 +62,10 @@ void read_file(char *filename, stack_t **stack)
 		int line_count = 1;
 
 		if (line == NULL || line[0] == '#')
+		{
+			line_count++;
 			continue;
-
+		}
 		instruction = get_instruction(line);
 		if (instruction == NULL)
 		{
