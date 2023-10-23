@@ -48,41 +48,39 @@ instructs_func get_instruction(char *str)
 
 void read_file(char *filename, stack_t **stack)
 {
-	char *buffer = NULL;
-	char *text;
-	size_t n = 0;
-	int lines_count = 1;
-	instructs_func result;
-	int check;
-	int read;
 	FILE *file = fopen(filename, "r");
+	char *buffer = NULL;
+	size_t bufsize = 0;
+	ssize_t read;
+	instructs_func *instruction;
 
 	if (file == NULL)
 	{
 		printf("Error: Can't open file %s\n", filename);
 		error_exit(stack);
 	}
-	while ((read = getline(&buffer, &n, file)) != -1)
+
+	while ((read = getline(&buffer, &bufsize, file)) != -1)
 	{
-		text = tokenizing(buffer);
-		if (text == NULL || text[0] == '#')
-		{
-			lines_count++;
+		char *line = strtok(buffer, "\n ");
+		int line_count = 1;
+
+		if (line == NULL || line[0] == '#')
 			continue;
-		}
-		result = get_instruction(text);
-		if (result == NULL)
+
+		instruction = get_instruction(line);
+		if (instruction == NULL)
 		{
-			printf("line %d: unknown instruction %s\n", lines_count, text);
+			printf("line %d: unknown instruction %s\n", line_count, line);
 			error_exit(stack);
 		}
-		result(stack, lines_count);
-		lines_count++;
+
+		instruction(stack, line_count);
+		line_count++;
 	}
+
 	free(buffer);
-	check = fclose(file);
-	if (check == -1)
-		exit(-1);
+	fclose(file);
 }
 
 /**

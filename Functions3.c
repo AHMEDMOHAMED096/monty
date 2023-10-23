@@ -35,12 +35,12 @@ int isDigit(char *str)
 }
 
 /**
- * _rotl - Rotates the list to the left
+ * rotl - Rotates the list to the left
  * @stack: Pointer to the stack
  * @line_number: The current line
  */
 
-void _rotl(stack_t **stack, unsigned int line_number)
+void rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last_node;
 	int first_node_value;
@@ -59,12 +59,12 @@ void _rotl(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * _rotr - Rotates the list to the right
+ * rotr - Rotates the list to the right
  * @stack: Pointer of the stack
  * @line_number: The current line
  */
 
-void _rotr(stack_t **stack, unsigned int line_number)
+void rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last_node;
 	int first_node_value;
@@ -83,17 +83,15 @@ void _rotr(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * parse_line - parses a line for an opcode and arguments
- * @line: the line to be parsed
- *
- * Return: returns the opcode or null on failure
+ * nop - Does nothing
+ * @stack: Pointer to the stack
+ * @line_number: The current line
  */
-char *tokenizing(char *line)
-{
-	char *op_code;
 
-	op_code = strtok(line, "\n ");
-	if (op_code == NULL)
-		return (NULL);
-	return (op_code);
+void nop(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+	(void)stack;
+
+	;
 }
