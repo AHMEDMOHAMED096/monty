@@ -48,6 +48,7 @@ void read_file(char *filename, stack_t **stack)
 	char *buffer = NULL;
 	size_t bufsize = 0;
 	ssize_t read;
+	int check;
 	instructs_func instruction;
 
 	if (file == NULL)
@@ -62,10 +63,8 @@ void read_file(char *filename, stack_t **stack)
 		int line_count = 1;
 
 		if (line == NULL || line[0] == '#')
-		{
-			line_count++;
 			continue;
-		}
+
 		instruction = get_instruction(line);
 		if (instruction == NULL)
 		{
@@ -78,7 +77,9 @@ void read_file(char *filename, stack_t **stack)
 	}
 
 	free(buffer);
-	fclose(file);
+	check = fclose(file);
+	if (check == -1)
+		exit(-1);
 }
 
 int queueMode = 0;
