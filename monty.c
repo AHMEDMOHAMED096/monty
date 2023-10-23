@@ -88,6 +88,7 @@ void read_file(char *filename, stack_t **stack)
 
 int main(int argc, char **argv)
 {
+	int queueMode = 0;
 	stack_t *stack = NULL;
 
 	if (argc != 2)
