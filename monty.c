@@ -31,10 +31,10 @@ instruction_t *get_instruction(char *str)
 		{NULL, NULL}
 	};
 
-	for (i = 0; instructions[i].opcode != NULL; i++)
+	for (i = 0; instructions[i].f != NULL; i++)
 	{
 		if (strcmp(instructions[i].opcode, str) == 0)
-			return (&instructions[i]);
+			return (instructions[i].f);
 	}
 
 	return (NULL);
