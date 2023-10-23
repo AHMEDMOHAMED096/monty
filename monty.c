@@ -16,7 +16,6 @@ instructs_func get_instruction(char *str)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"pchar", pchar},
 		{"add", add},
 		{"sub", sub},
 		{"mul", mul},
@@ -25,9 +24,6 @@ instructs_func get_instruction(char *str)
 		{"nop", nop},
 		{"rotl", rotl},
 		{"rotr", rotr},
-		{"pstr", pstr},
-		{"stack", stack},
-		{"queue", queue},
 		{NULL, NULL}
 	};
 
