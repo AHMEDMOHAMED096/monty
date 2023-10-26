@@ -15,7 +15,7 @@ void push(stack_t **stack, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		error_exit(stack);
 	}
 
@@ -26,7 +26,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("line %d: usage: push integer\n", line_number);
+		fprintf(stderr, "line %d: usage: push integer\n", line_number);
 		error_exit(stack);
 	}
 
@@ -78,7 +78,7 @@ void pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		printf("line %d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "line %d: can't pint, stack empty\n", line_number);
 		error_exit(stack);
 	}
 	printf("%d\n", (*stack)->n);
@@ -96,7 +96,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		printf("line %d: can't swap, stack too short\n", line_number);
+		fprintf(stderr, "line %d: can't swap, stack too short\n", line_number);
 		error_exit(stack);
 	}
 
@@ -117,7 +117,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		printf("line %d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "line %d: can't pop an empty stack\n", line_number);
 		error_exit(stack);
 	}
 
