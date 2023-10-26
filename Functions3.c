@@ -7,7 +7,8 @@
 
 void error_exit(stack_t **stack)
 {
-	free_list(*stack);
+	if (*stack)
+		free_list(*stack);
 	exit(EXIT_FAILURE);
 }
 
