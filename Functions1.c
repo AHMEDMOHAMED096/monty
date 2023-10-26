@@ -76,15 +76,12 @@ void pall(stack_t **stack, unsigned int line_number)
 
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
-
-	new = *stack;
-	if (new == NULL)
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "line %d: can't pint, stack empty\n", line_number);
 		error_exit(stack);
 	}
-	printf("%d\n", new->n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
@@ -120,7 +117,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "line %d: can't pop an empty stack\n", line_number);
+		fprintf(stderr,"line %d: can't pop an empty stack\n", line_number);
 		error_exit(stack);
 	}
 
